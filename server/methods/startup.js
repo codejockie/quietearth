@@ -9,7 +9,7 @@ Meteor.startup(() => {
         return user;
     });
     const users = Meteor.users.find().fetch();
-    users.forEach((userData) => {
+    _.each(users, (userData) => {
         if (userData.emails[0].address === 'admin@localhost.com') {
             Roles.addUsersToRoles(userData, ['admin']);
         }
