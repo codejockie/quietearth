@@ -9,8 +9,9 @@ Template.categoryAdmin.events({
         event.preventDefault();
         const category = {};
         category.name = template.find('#categoryName').value;
-        Meteor.call('addCategory', category);
-        // clear the input field after successful insert
-        template.find('#categoryName').value = '';
+        Meteor.call('addCategory', category, () => {
+            // clear the input field after successful insert
+            $('#categoryName').val('');
+        });
     }
 });

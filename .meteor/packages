@@ -26,3 +26,5 @@ fortawesome:fontawesome
 cfs:standard-packages
 cfs:gridfs
 stevezhu:lodash
+matb33:collection-hooks
+dburles:collection-helpers

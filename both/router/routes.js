@@ -1,6 +1,7 @@
 FlowRouter.route(['/', 'home'], {
     subscriptions() {
       this.register('categorieslist', Meteor.subscribe('category'));
+      this.register('productsList', Meteor.subscribe('product'));
     },
     action() {
         console.log('Running Action to render templates into layouts.');
@@ -11,6 +12,7 @@ FlowRouter.route(['/', 'home'], {
 FlowRouter.route('/admin', {
     subscriptions() {
         this.register('categorieslist', Meteor.subscribe('category'));
+        this.register('productsList', Meteor.subscribe('product'));
     },
     action() {
         if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
