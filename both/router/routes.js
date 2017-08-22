@@ -1,4 +1,7 @@
 FlowRouter.route(['/', 'home'], {
+    subscriptions() {
+      Meteor.subscribe('category');
+    },
     action() {
         console.log('Running Action to render templates into layouts.');
         FlowLayout.render('layout', { sidebar: 'sidebar', main: 'home', cart: 'cart' })
@@ -8,9 +11,9 @@ FlowRouter.route(['/', 'home'], {
 FlowRouter.route('/admin', {
     action() {
         if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
-            FlowLayout.render('layout', { sidebar: '', main: 'admin', cart: ''})
+            FlowLayout.render('layout', { sidebar: '', main: 'admin', cart: '' })
         } else {
-            FlowLayout.render('layout', { sidebar: '', main: 'unauthorised', cart: ''})
+            FlowLayout.render('layout', { sidebar: '', main: 'unauthorised', cart: '' })
         }
     }
 });
@@ -29,7 +32,7 @@ FlowRouter.route('/signin', {
 
 FlowRouter.route('/profile', {
    action() {
-       FlowLayout.render('layout', { sidebar: '', main: 'profile', cart: ''})
+       FlowLayout.render('layout', { sidebar: '', main: 'profile', cart: '' })
    }
 });
 
@@ -51,8 +54,7 @@ FlowRouter.route('/checkout', {
 
 FlowRouter.route('/category/:categoryName', {
     subscriptions(params) {
-        console.log('SUBSCRIBE', params);
-        // make sure subscriptions exist
+        Meteor.subscribe('category');
     },
     triggersEnter(params) {
         console.log('ENTER', params);
