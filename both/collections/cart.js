@@ -1,8 +1,8 @@
 Cart = new Mongo.Collection('cart');
 Cart.helpers({
-   cartproduct() {
+    cartproduct() {
        return Product.findOne({ _id: this.product });
-   },
+    },
     image() {
        if (this.img) {
            return this.img;
