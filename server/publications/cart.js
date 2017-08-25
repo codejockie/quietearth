@@ -1,3 +1,3 @@
-Meteor.publish('cart', () => {
-    return Cart.find({});
+Meteor.publish('cart', (userId) => {
+    return Cart.find({ userId });
 });

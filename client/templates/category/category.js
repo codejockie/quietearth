@@ -1,3 +1,4 @@
+Session.setDefault('isCheckingOut', false);
 Template.category.onCreated(function () {
     this.subscribe('product');
 });
@@ -7,7 +8,11 @@ Template.category.helpers({
         return FlowRouter.getParam('categoryName');
     },
     products() {
-        return Product.find();
+        const categoryId = Category.findOne({ name: FlowRouter.getParam('categoryName')})._id;
+        return Product.find({ categoryId });
+    },
+    isCheckingOut() {
+        return Session.equals('isCheckingOut', true);
     }
 });
 

@@ -61,6 +61,7 @@ FlowRouter.route('/category/:categoryName', {
     subscriptions(params) {
         this.register('catlist', Meteor.subscribe('category'));
         this.register('catproducts', Meteor.subscribe('categoryProducts', params.categoryName));
+        this.register('usercart', Meteor.subscribe('cart', Meteor.userId()));
     },
     triggersEnter(params) {
         console.log('ENTER', params);

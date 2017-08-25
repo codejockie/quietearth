@@ -4,23 +4,23 @@
             <h4 class="text-center">
                 <span class="label label-warning">{{category.name}}</span>
             </h4>
-            <img src="/images/apple-crisp-16.jpg" alt="AppleCrisp" class="img-responsive">
+            <img src="{{img}}" alt="AppleCrisp" class="img-responsive">
             <div class="caption">
                 <div class="row">
                     <div class="col-md-6 col-xs-6">
-                        <h4>{{name}}</h4>
+                        <h6>{{truncate name 8}}</h6>
                     </div>
                     <div class="col-md-6 col-xs-6 price">
-                        <h4><label>{{price}}</label></h4>
+                        <h><label>{{currency price}}</label></h>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <i class="fa fa-star price-text-color"></i>
-                        <i class="fa fa-star price-text-color"></i>
-                        <i class="fa fa-star price-text-color"></i>
-                        <i class="fa fa-star price-text-color"></i>
-                        <i class="fa fa-star price-text-color"></i>
+                        <i class="fa fa-star {{ratings 1 rating}}"></i>
+                        <i class="fa fa-star {{ratings 2 rating}}"></i>
+                        <i class="fa fa-star {{ratings 3 rating}}"></i>
+                        <i class="fa fa-star {{ratings 4 rating}}"></i>
+                        <i class="fa fa-star {{ratings 5 rating}}"></i>
                     </div>
                     <div class="col-md-6">
                         <a href="#" class="btn btn-success btn-product">
