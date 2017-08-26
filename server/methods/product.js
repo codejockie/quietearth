@@ -1,5 +1,5 @@
 Meteor.startup(() => {
-    Product._ensureIndex({ "categoryId": 1});
+    Product._ensureIndex({ "categoryId": 1 });
 });
 
 Meteor.methods({
@@ -16,15 +16,16 @@ Meteor.methods({
             throw new Meteor.Error('Not Authorised');
         }
 
-        check(quantity, Number);
-        check(product, String);
-        const item = Cart.findOne({ product });
+        // check(quantity, Number);
+        // check(product, String);
+        const userId = Meteor.userId();
+        const item = Cart.findOne({ product, userId });
 
-        if (item) {
-            return Cart.update({ product }, { $inc: { quantity: 1 }});
+        if (item && item.userId === userId) {
+            return Cart.update({ product, userId }, { $inc: { quantity: 1 }});
         }
 
-        return Cart.insert({ userId: Meteor.userId(), product, quantity });
+        return Cart.insert({ userId, product, quantity });
     },
     // Update
     'Product.update'(id, price, name) {

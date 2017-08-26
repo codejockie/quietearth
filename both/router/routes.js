@@ -5,7 +5,7 @@ FlowRouter.route(['/', 'home'], {
     },
     action() {
         console.log('Running Action to render templates into layouts.');
-        FlowLayout.render('layout', { sidebar: 'sidebar', main: 'home', cart: 'cart' })
+        FlowLayout.render('layout', { sidebar: 'sidebar', main: 'home', cart: 'cart' });
     }
 });
 
@@ -16,28 +16,31 @@ FlowRouter.route('/admin', {
     },
     action() {
         if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
-            FlowLayout.render('layout', { sidebar: '', main: 'admin', cart: '' })
+            FlowLayout.render('layout', { sidebar: '', main: 'admin', cart: '' });
         } else {
-            FlowLayout.render('layout', { sidebar: '', main: 'unauthorised', cart: '' })
+            FlowLayout.render('layout', { sidebar: '', main: 'unauthorised', cart: '' });
         }
     }
 });
 
 FlowRouter.route('/register', {
     action() {
-        FlowLayout.render('layout', { sidebar: '', main: 'register', cart: '' })
+        FlowLayout.render('layout', { sidebar: '', main: 'register', cart: '' });
     }
 });
 
 FlowRouter.route('/signin', {
     action() {
-        FlowLayout.render('layout', { sidebar: '', main: 'signin', cart: '' })
+        FlowLayout.render('layout', { sidebar: '', main: 'signin', cart: '' });
     }
 });
 
 FlowRouter.route('/profile', {
    action() {
-       FlowLayout.render('layout', { sidebar: '', main: 'profile', cart: '' })
+       if (!Meteor.userId()) {
+           FlowRouter.go('/signin');
+       }
+       FlowLayout.render('layout', { sidebar: '', main: 'profile', cart: '' });
    }
 });
 
@@ -53,7 +56,7 @@ FlowRouter.route('/signout', {
 
 FlowRouter.route('/checkout', {
     action() {
-        FlowLayout.render('layout', { sidebar: '', main: 'checkout', cart: '' })
+        FlowLayout.render('layout', { sidebar: '', main: 'checkout', cart: '' });
     }
 });
 

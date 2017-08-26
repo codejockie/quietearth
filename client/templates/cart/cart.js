@@ -1,6 +1,6 @@
 Template.cart.helpers({
     cartitems() {
-       return Cart.find();
+        return Cart.find();
     },
     itemsInCart() {
         return Cart.find().count() !== 0;

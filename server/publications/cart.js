@@ -1,3 +1,3 @@
 Meteor.publish('cart', (userId) => {
-    return Cart.find({ userId: this.userId });
+    return Cart.find({ userId });
 });
