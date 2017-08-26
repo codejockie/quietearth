@@ -12,6 +12,10 @@ Template.cart.events({
        Session.set('isCheckingOut', true);
    },
     'click .delFromCart'(event, template) {
-        Meteor.call('Cart.remove', this._id);
+        deleteFromCart(this._id);
     }
 });
+
+function deleteFromCart(id) {
+    Meteor.call('Cart.remove', id);
+}

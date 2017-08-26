@@ -2,7 +2,9 @@
     {{> categoryAdmin}}
     <div class="col-sm-6">
         <form id="productForm">
+            <input type="hidden" id="productId">
             <h2 class="heading">Product Administration</h2>
+            <div class="alert message"></div>
             <div class="form-group">
                 <label class="control-label">Product Name</label>
                 <input id="productname" class="form-control input-sm">
@@ -57,9 +59,9 @@
             </thead>
             <tbody>
             {{#each products}}
-                <tr>
+                <tr id="{{_id}}" class="product-edit">
                     <td>{{name}}</td>
-                    <td>${{price}}</td>
+                    <td>{{currency price}}</td>
                     <td>{{category.name}}</td>
                     <td><i class="fa fa-trash alert-danger removeProduct"></i></td>
                 </tr>
