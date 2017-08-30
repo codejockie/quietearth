@@ -20,5 +20,9 @@ Product.attachSchema(new SimpleSchema({
     },
     price: {
         type: Number
+    },
+    rating: {
+        type: Number,
+        defaultValue: 0
     }
 }));

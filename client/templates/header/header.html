@@ -6,13 +6,13 @@
             </div>
             <div class="collapse navbar-collapse" id="main-nav">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
+                    <li class="{{isActivePath '/'}}"><a href="/">Home</a></li>
                     {{#if isInRole 'admin'}}
-                        <li><a href="/admin">Admin</a></li>
+                        <li class="{{isActivePath '/admin'}}"><a href="/admin">Admin</a></li>
                     {{/if}}
                     {{#if currentUser}}
-                        <li><a href="/profile">My Profile</a></li>
-                        <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                        <li class="{{isActivePath '/profile'}}"><a href="/profile">My Profile</a></li>
+                        <li class="{{isActivePath '/cart'}}"><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                     {{/if}}
                 </ul>
                 {{#if currentUser}}

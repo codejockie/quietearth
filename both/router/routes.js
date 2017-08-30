@@ -1,4 +1,4 @@
-FlowRouter.route(['/', 'home'], {
+FlowRouter.route('/', {
     subscriptions() {
       this.register('categorieslist', Meteor.subscribe('category'));
       this.register('productsList', Meteor.subscribe('product'));

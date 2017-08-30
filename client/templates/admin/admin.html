@@ -12,7 +12,7 @@
             <div class="form-group">
                 <label class="control-label">Category</label>
                 <select name="category" id="category" class="form-control">
-                    {{# each categories}}
+                    {{#each categories}}
                         <option value="{{_id}}">{{name}}</option>
                     {{/each}}
                 </select>
@@ -60,10 +60,10 @@
             <tbody>
             {{#each products}}
                 <tr id="{{_id}}" class="product-edit">
-                    <td>{{name}}</td>
+                    <td style="cursor: pointer;">{{name}}</td>
                     <td>{{currency price}}</td>
                     <td>{{category.name}}</td>
-                    <td><i class="fa fa-trash alert-danger removeProduct"></i></td>
+                    <td><i class="fa fa-trash alert-danger removeProduct" style="cursor: pointer;"></i></td>
                 </tr>
             {{/each}}
             </tbody>
